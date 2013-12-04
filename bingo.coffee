@@ -1,22 +1,22 @@
 #!/usr/bin/coffee
 
 io = require 'socket.io-client'
-util = require 'util'
-socket = io.connect 'ws://yahoobingo.herokuapp.com'
 _ = require 'underscore'
 
 bingo = ['B', 'I', 'N', 'G', 'O']
 state = 'lost'
 
-fnum = (n) -> if n < 10 then " #{n}" else "#{n}"
+snum = (n) -> if n < 10 then " #{n}" else "#{n}"
+fnum = (j) -> if j.found then "[" + snum(j.n) + "]" else " " + snum(j.n) + " "
 
+socket = io.connect 'ws://yahoobingo.herokuapp.com'
 socket.on 'connect', ->
 
     card = {}
 
     socket.on 'card', (data) ->
         for i in bingo
-            card[i] = ({num: j, found: false} for j in data.slots[i])
+            card[i] = ({n: j, found: false} for j in data.slots[i])
 
     socket.on 'number', (ball) ->
         m = ball.match /([BINGO])(\d+)/
@@ -42,9 +42,9 @@ socket.on 'connect', ->
 
             false)()
 
-        console.log "BALL: #{ball}"
+        console.log "\n\nBALL: #{ball}\n"
         for i in bingo
-            console.log((if j.found then '[#{fnum(j.n)}]' else ' #{fnum(j.n)} ' for j in card[i]).join(' '))
+            console.log(card[i].map(fnum).join(" "))
         if f
             console.log "Looks like you won."
             socket.emit 'bingo'
@@ -53,10 +53,10 @@ socket.on 'connect', ->
     socket.on 'lose', -> state = 'lost'
 
     socket.on 'disconnect', ->
-        console.log "You appear to have #{state}"
+        console.log "You appear to have #{state}."
         process.exit()
 
     socket.emit 'register',
-        name: 'Ken Sternberg'
-        email: 'sternberg@mailinator.com'
-        url: ''
+        name: 'Elf M. Sternberg'
+        email: 'elf.sternberg@gmail.com'
+        url: 'https://github.com/elfsternberg/yahoobingo'
