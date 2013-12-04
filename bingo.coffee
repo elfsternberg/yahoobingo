@@ -4,7 +4,7 @@ io = require "socket.io-client"
 
 bingo = ["B", "I", "N", "G", "O"]
 coors = [0..4]
-state = "lost"
+state = "playing"
 
 snum = (n) -> if n < 10 then " #{n}" else "#{n}"
 fnum = (j) -> if j.found then "[#{snum(j.n)}]" else " #{snum(j.n)} "
