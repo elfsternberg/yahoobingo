@@ -6,7 +6,6 @@
   repository: "https://github.com/elfsternberg/yahoobingo"
   dependencies: 
     socket.io-client: "~0.9.16"
-    underscore: "~1.5.2"
     coffee-script: "~1.6.3"
   devDependencies: {}
   scripts: 

@@ -1,7 +1,6 @@
 #!/usr/bin/coffee
 
 io = require "socket.io-client"
-_ = require "underscore"
 
 bingo = ["B", "I", "N", "G", "O"]
 coors = [0..4]
@@ -30,12 +29,12 @@ socket.on "connect", ->
         f = (->
             for i in coors
                 for test in [((m, j) -> may m, card[i][j]), ((m, j) -> may m, card[j][i])]
-                    if 5 == _.reduce coors, test, 0
+                    if 5 == coors.reduce test, 0
                         return true
 
 
             for test in [((m, j) -> may m, card[j][j]), ((m, j) -> may m, card[j][4 - j])]
-                if 5 == _.reduce coors, test, 0
+                if 5 == coors.reduce test, 0
                     return true
 
             false)()
