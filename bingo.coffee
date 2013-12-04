@@ -8,7 +8,7 @@ coors = [0..4]
 state = "lost"
 
 snum = (n) -> if n < 10 then " #{n}" else "#{n}"
-fnum = (j) -> if j.found then "[#{fnum(j.n)}]" else " #{fnum(j.n)} "
+fnum = (j) -> if j.found then "[#{snum(j.n)}]" else " #{snum(j.n)} "
 
 socket = io.connect "ws://yahoobingo.herokuapp.com"
 socket.on "connect", ->
