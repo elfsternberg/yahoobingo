@@ -1,0 +1,58 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "eslint-plugin-import", "prettier"],
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
+    "parserOptions": {
+        "project": ["tsconfig.json"],
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-await-in-loop": "off",
+        "no-use-before-define": "off",
+        "no-nested-ternary": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "@typescript-eslint/ban-types": "warn",
+        "@typescript-eslint/no-use-before-define": "warn",
+        "arrow-body-style": "warn",
+        "camelcase": "warn",
+        "dot-notation": "warn",
+        "eqeqeq": "warn",
+        "import/first": "warn",
+        "import/newline-after-import": "warn",
+        "import/no-extraneous-dependencies": "warn",
+        "import/order": "warn",
+        "no-else-return": "warn",
+        "no-param-reassign": "warn",
+        "no-return-assign": "warn",
+        "no-sequences": "warn",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": ["warn"],
+        "no-underscore-dangle": "warn",
+        "no-unneeded-ternary": "warn",
+        "object-shorthand": "warn",
+        "prefer-arrow-callback": "warn",
+        "prefer-const": "warn",
+        "prefer-destructuring": "warn",
+        "prefer-template": "warn"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".ts"]
+            },
+            "typescript": {
+                "project": "./tsconfig.json"
+            }
+        }
+    }
+}

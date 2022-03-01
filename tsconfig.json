@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "sourceMap": false,
+        "noImplicitAny": false,
+        "module": "esnext",
+        "target": "es2019",
+        "lib": ["es2019", "dom", "dom.iterable"],
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "allowJs": true,
+        "strict": true,
+        "baseUrl": "./",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "noUnusedLocals": true /* Report errors on unused locals. */,
+        "experimentalDecorators": true,
+        "noUnusedParameters": true /* Report errors on unused parameters. */,
+        "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+        "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+        "noUncheckedIndexedAccess": true /* Include 'undefined' in index signature results */,
+        "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["./src/**/*"]
+}
